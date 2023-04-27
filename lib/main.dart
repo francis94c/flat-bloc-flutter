@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:no_context_navigation/no_context_navigation.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,6 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      navigatorKey: NavigationService.navigationKey,
       theme: ThemeData(
         // This is the theme of your application.
         //
