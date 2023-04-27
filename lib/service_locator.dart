@@ -16,10 +16,13 @@ GetIt locator = GetIt.instance;
 Future<void> setupLocator() async {
   // HTTP Clients.
   Dio dio = Dio(BaseOptions(headers: baseHeaders));
+
+  // Interceptors.
   if (kDebugMode) {
     dio.interceptors.add(ResponseLoggingInterceptor());
-    dio.interceptors.add(ErrorResponseInterceptor());
   }
+
+  dio.interceptors.add(ErrorResponseInterceptor());
 
   if (kDebugMode) {
     locator.registerFactory<AuthenticationClient>(() => AuthenticationClient(
